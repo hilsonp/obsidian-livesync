@@ -1100,11 +1100,11 @@ export class ObsidianLiveSyncSettingTab extends PluginSettingTab {
             });
         let skipPatternTextArea: TextAreaComponent = null;
         const defaultSkipPattern = "\\/node_modules\\/, \\/\\.git\\/, \\/obsidian-livesync\\/";
-        const defaultSkipPatternXPlat = defaultSkipPattern + ",\\/workspace$ ,\\/workspace.json$";
+        const defaultSkipPatternXPlat = defaultSkipPattern + ", \\/workspace$, \\/workspace(-mobile)?\\.json$";
         new Setting(containerSyncSettingEl)
             .setName("Skip patterns")
             .setDesc(
-                "Regular expression, If you use hidden file sync between desktop and mobile, adding `workspace$` is recommended."
+                "Regular expression, If you use hidden file sync between desktop and mobile, ignoring 'workspace', 'workspace.json' and 'workspace-mobile.json' is recommended (See the default skip pattern 'Cross Platform' here below)."
             )
             .addTextArea((text) => {
                 text
